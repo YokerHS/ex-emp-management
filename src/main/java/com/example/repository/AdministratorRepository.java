@@ -28,19 +28,18 @@ public class AdministratorRepository {
      *管理者の情報を挿入する
      * @param administrator 管理者の情報
      * */
-    public void insert(Administrator administrator){
+    public void insert(Administrator administrator) {
 
         SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
 
         String sql = """
-                INSERT INTO administrator(name, mail-address, password)
-                VALUES(:name,:mailAddress, :password);
-                """;
+            INSERT INTO administrators(name, mail_address, password)
+            VALUES(:name, :mailAddress, :password);
+            """;
 
         KeyHolder keyHolder = new GeneratedKeyHolder();
-        template.update(sql,param,keyHolder, new String[] {"id"});
+        template.update(sql, param, keyHolder, new String[] {"id"});
         administrator.setId(keyHolder.getKey().intValue());
-
     }
 
     /**
