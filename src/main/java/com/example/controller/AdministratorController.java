@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/** 管理者関連機能の処理の御製を行うコントローラ */
+/**
+ *管理者関連機能の処理の制御を行うコントローラ.
+ */
 @Controller
 @RequestMapping("/")
 public class AdministratorController {
@@ -24,11 +26,23 @@ public class AdministratorController {
     @Autowired
     private HttpSession session;
 
+    /**
+     * 管理者情報画面に遷移する.
+     *
+     * @param form フォーム
+     * @return 管理者情報画面
+     */
     @GetMapping("/toInsert")
     public String toInsert(InsertAdministratorForm form){
-        return "administrator/insert.html";
+        return "administrator/insert";
     }
 
+    /**
+     * 管理者情報を登録する.
+     *
+     * @param form フォーム
+     * @return ログイン画面
+     */
     @PostMapping("/insert")
     public String insert(InsertAdministratorForm form){
         Administrator administrator = new Administrator();
@@ -37,11 +51,24 @@ public class AdministratorController {
         return "redirect:/";
     }
 
+    /**
+     * ログイン画面に移す.
+     *
+     * @param form　フォーム
+     * @return　ログイン画面
+     */
     @GetMapping("/")
     public String toLogin(LoginForm form){
         return "administrator/login.html";
     }
 
+    /**
+     * ログインをする.
+     *
+     * @param form フォーム
+     * @param model モデル
+     * @return 従業員一覧画面(ログイン失敗時はログイン画面に戻る)
+     */
     @PostMapping("/login")
     public String login(LoginForm form, Model model){
 
@@ -49,7 +76,7 @@ public class AdministratorController {
         administrator = administratorService.login(
                         form.getMailAddress(),
                         form.getPassword());
-        
+
         if (administrator == null) {
             model.addAttribute("loginResult","メールアドレスまたはパスワードが間違っています");
             return "administrator/login.html";

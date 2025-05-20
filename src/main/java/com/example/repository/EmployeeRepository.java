@@ -1,6 +1,5 @@
 package com.example.repository;
 
-import com.example.domain.Administrator;
 import com.example.domain.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -13,7 +12,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/** employee テーブルを操作するリポジトリ */
+/**
+ * employee テーブルを操作するリポジトリ.
+ */
 @Repository
 public class EmployeeRepository {
 
@@ -24,10 +25,11 @@ public class EmployeeRepository {
             = new BeanPropertyRowMapper<>(Employee.class);
 
     /**
-     *ID主キーによる従業員の検索
+     *ID主キーによる従業員の検索.
+     *
      * @param id　従業員のID
-     * @return employee
-     * */
+     * @return 従業員情報
+     */
     public Employee findById(Integer id){
 
         String sql
@@ -46,9 +48,9 @@ public class EmployeeRepository {
 
 
     /**
-     *従業員一覧情報を入社日順（降順）で取得する
+     *従業員一覧情報を入社日順（降順）で取得する.
      * @return 入社日順（降順）で全員の一覧
-     * */
+     */
     public List<Employee> findAll(){
         String sql = """
                 SELECT id, name, image, gender, hire_date, mail_address, zip_code, address, telephone, salary, characteristics, dependents_count
@@ -61,9 +63,9 @@ public class EmployeeRepository {
 
 
     /**
-     *従業員情報を変更する
+     *従業員情報を変更する.
      * @param employee 変更する情報
-     * */
+     */
     public void update(Employee employee){
         SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 

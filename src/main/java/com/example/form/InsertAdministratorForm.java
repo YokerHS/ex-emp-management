@@ -1,8 +1,13 @@
 package com.example.form;
-/** 管理者登録時に使うフォーム */
+/**
+ * 管理者登録時に使うフォーム
+ */
 public class InsertAdministratorForm {
+    /** 管理者の名前 */
     private String name;
+    /** 管理者のメールアドレス */
     private String mailAddress;
+    /** 管理者のパスワード */
     private String password;
 
     public String getName() {

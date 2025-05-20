@@ -1,24 +1,21 @@
 package com.example.domain;
-/**管理者情報を表すドメインクラス
- * administrators　テーブルに対応  */
-
+/**
+ * 管理者情報を表すドメインクラス.
+ * administrators　テーブルに対応
+ */
 public class Administrator {
     /** ID （主キー） */
     private Integer id;
-
     /** 名前 */
     private String name;
-
     /** メールアドレス */
     private String mailAddress;
-
     /** パスワード */
     private String password;
 
-
     /**
-     * Getter, Setter
-     * */
+     * Getter, Setter.
+     */
     public Integer getId() {
         return id;
     }

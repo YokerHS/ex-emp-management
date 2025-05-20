@@ -14,7 +14,8 @@ public class AdministratorService {
     @Autowired
     private AdministratorRepository administratorRepository;
 
-    /** 新規 Administrator 追加するメソッド
+    /**
+     * 新規 Administrator 追加するメソッド
      * @param administrator Administrator の情報
      * */
     public void insert(Administrator administrator){

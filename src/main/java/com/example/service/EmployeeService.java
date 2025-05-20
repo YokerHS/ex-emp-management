@@ -8,7 +8,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/** 従業員関連機能の業務処理を行うサービス */
+/**
+ *従業員関連機能の業務処理を行うサービス
+ */
 @Service
 @Transactional
 public class EmployeeService {
@@ -16,12 +18,12 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    /** 従業員情報を全件取得する
+    /** 従業員情報を全件取得する.
      * @return employeeList
-     * */
+     */
     public List<Employee> showList(){
         return employeeRepository.findAll();
     }
 
-    
+
 }
