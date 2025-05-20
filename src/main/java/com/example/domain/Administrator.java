@@ -35,12 +35,12 @@ public class Administrator {
         this.name = name;
     }
 
-    public String getMail_address() {
-        return mail_address;
+    public String getMailAddress() {
+        return mailAddress;
     }
 
-    public void setMail_address(String mail_address) {
-        this.mail_address = mail_address;
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
     }
 
     public String getPassword() {
@@ -56,7 +56,7 @@ public class Administrator {
         return "Administrator{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", mail_address='" + mail_address + '\'' +
+                ", mailAddress='" + mailAddress + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
