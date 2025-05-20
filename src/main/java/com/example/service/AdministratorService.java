@@ -14,7 +14,18 @@ public class AdministratorService {
     @Autowired
     private AdministratorRepository administratorRepository;
 
+    /** 新規 Administrator 追加するメソッド
+     * @param administrator Administrator の情報
+     * */
     public void insert(Administrator administrator){
         administratorRepository.insert(administrator);
+    }
+
+    /** Administratornのログイン処理メソッド
+     * @param mailAddress Administratorのメールアドレス
+     * @param password パスワード
+     * */
+    public Administrator login(String mailAddress, String password){
+        return administratorRepository.findByMailAddressAndPassword(mailAddress,password);
     }
 }
