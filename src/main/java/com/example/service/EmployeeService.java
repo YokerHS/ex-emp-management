@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  *従業員関連機能の業務処理を行うサービス.
- * 
+ *
  */
 @Service
 @Transactional

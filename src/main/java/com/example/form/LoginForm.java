@@ -1,10 +1,14 @@
 package com.example.form;
+
+import jakarta.validation.constraints.NotNull;
+
 /**
  * ログイン時に使うフォーム.
  *
  */
 public class LoginForm {
     /** 従業員のメールアドレス*/
+    @NotNull(message = "")
     private String mailAddress;
     /** 従業員のパスワード*/
     private String password;
