@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * administrator テーブルを操作するリポジトリ.
+ *
  */
 @Repository
 public class AdministratorRepository {

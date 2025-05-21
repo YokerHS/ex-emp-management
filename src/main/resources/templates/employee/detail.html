@@ -59,10 +59,10 @@
               <li class="active"><a href="list.html">従業員管理</a></li>
             </ul>
             <p class="navbar-text navbar-right">
-              <span th:text="${session.administratorName + 'さん'}"
+              <span th:text="${session.administratorName.name + 'さん'}"
                 >山田さん</span
               >こんにちは！ &nbsp;&nbsp;&nbsp;
-              <a href="../administrator/login.html" class="navbar-link"
+              <a href="../administrator/login.html" th:href="@{/logout}" class="navbar-link"
                 >ログアウト</a
               >
             </p>
@@ -170,12 +170,13 @@
                               style="color: red"
                               for="dependentsCount"
                       ></label>
-                      <input type="hidden" th:field="*{id}" />
+                      <input type="hidden" name="id" th:value="${employee.id}" />
 
 
                       <input
                               type="text"
-                              th:field="*{dependentsCount}"
+                              name="dependentsCount"
+                              th:value="${employee.dependentsCount}"
                               id="dependentsCount"
                               class="form-control"
                       />

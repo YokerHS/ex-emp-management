@@ -1,6 +1,7 @@
 package com.example.form;
 /**
- * 従業員更新ときに使うフォーム
+ * 従業員更新ときに使うフォーム.
+ *
  */
 public class UpdateEmployeeForm {
     /** 従業員ID */

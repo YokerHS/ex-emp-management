@@ -1,6 +1,7 @@
 package com.example.form;
 /**
- * ログイン時に使うフォーム
+ * ログイン時に使うフォーム.
+ *
  */
 public class LoginForm {
     /** 従業員のメールアドレス*/

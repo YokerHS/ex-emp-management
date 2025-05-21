@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *管理者関連機能の処理の制御を行うコントローラ.
+ *
  */
 @Controller
 @RequestMapping("/")
@@ -59,7 +60,7 @@ public class AdministratorController {
      */
     @GetMapping("/")
     public String toLogin(LoginForm form){
-        return "administrator/login.html";
+        return "administrator/login";
     }
 
     /**
@@ -71,17 +72,28 @@ public class AdministratorController {
      */
     @PostMapping("/login")
     public String login(LoginForm form, Model model){
-
-        Administrator administrator;
-        administrator = administratorService.login(
-                        form.getMailAddress(),
-                        form.getPassword());
+        Administrator administrator
+                        = administratorService.login(
+                            form.getMailAddress(),
+                            form.getPassword());
 
         if (administrator == null) {
             model.addAttribute("loginResult","メールアドレスまたはパスワードが間違っています");
             return "administrator/login.html";
         }
-
+        session.setAttribute("administratorName",administrator);
         return "redirect:/employee/showList";
+    }
+
+    /**
+     * ログアウトをする.
+     *
+     * @param form フォーム
+     * @return ログイン画面
+     */
+    @GetMapping("/logout")
+    public String logout(LoginForm form){
+        session.invalidate();
+        return "redirect:/";
     }
 }

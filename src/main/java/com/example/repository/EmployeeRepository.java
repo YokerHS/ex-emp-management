@@ -14,6 +14,7 @@ import java.util.List;
 
 /**
  * employee テーブルを操作するリポジトリ.
+ *
  */
 @Repository
 public class EmployeeRepository {
@@ -49,6 +50,7 @@ public class EmployeeRepository {
 
     /**
      *従業員一覧情報を入社日順（降順）で取得する.
+     *
      * @return 入社日順（降順）で全員の一覧
      */
     public List<Employee> findAll(){
@@ -64,6 +66,7 @@ public class EmployeeRepository {
 
     /**
      *従業員情報を変更する.
+     *
      * @param employee 変更する情報
      */
     public void update(Employee employee){
