@@ -60,6 +60,9 @@ public class AdministratorController {
      */
     @GetMapping("/")
     public String toLogin(LoginForm form){
+        if (session.getAttribute("administratorName") != null) {
+            return "redirect:/employee/showList";
+        }
         return "administrator/login";
     }
 
