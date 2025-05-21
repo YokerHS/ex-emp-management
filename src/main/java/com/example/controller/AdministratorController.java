@@ -55,7 +55,7 @@ public class AdministratorController {
      * ログイン画面に移す.
      *
      * @param form　フォーム
-     * @return　ログイン画面
+     * @return ログイン画面
      */
     @GetMapping("/")
     public String toLogin(LoginForm form){
